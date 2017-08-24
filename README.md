@@ -2,15 +2,24 @@
 集成第三方登录和分享功能
 # 1、集成步骤
 
-##第一步：首先导入依赖
+## 第一步：首先导入依赖
+ ```java
+  allprojects {
+  		repositories {
+  			...
+  			maven { url 'https://jitpack.io' }
+  		}
+  	}	
+```
+> compile 'com.github.qiaodashaoye:SimpleShare:1.0.1'
 
-##第二步：
+## 第二步：
  - 在main文件夹下新建assets文件夹，并把从ShareSDK官网下载的SDK资源包文件夹下的ShareSDK.xml文件放到里面，
 里面对应的是各个平台的Key信息，要把自己从个平台申请的Key换上（切记要换成自己的,不然调不起登录或分享）,
 为了提高扩展性库中没有添加任何平台分享或登录所需要的jar包，所以可以根据自己需求添加。jar包必须添加，不添加
 不会显示分享图标，例如，添加QQ分享功能，必须在libs文件夹下添加ShareSDK-QQ-3.0.1.jar。ShareSDK给了默认的各平台图标，
 可以字节拷到drawable下，也可放自己的。
-##第三步：
+## 第三步：
 - 在清单文件下进行如下配置（直接复制下面代码即可），
 <activity
      android:name="com.mob.tools.MobUIShell"
@@ -78,7 +87,7 @@
 
 -这四个类的路径是需要根据您项目的包名来确定，如果路径错误，您将收不到操作回调，因此ShareSDK也无法给予您操作回调。为了避免出错，请使用相对路径的方式，直接复制上面的代码到您的AndroidManifest.xml中即可。
 
-#2、 使用方法
+# 2、 使用方法
  - 登录调用  参数是授权平台的名字，下面以QQ为例
  ```java
  OtherLogin.showLogin(QQ.NAME);
