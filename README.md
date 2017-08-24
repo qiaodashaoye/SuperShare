@@ -1,6 +1,6 @@
 # SimpleShare
 集成第三方登录和分享功能
-## 使用
+# 1、集成步骤
 
 ##第一步：首先导入依赖
 
@@ -78,46 +78,19 @@
 
 -这四个类的路径是需要根据您项目的包名来确定，如果路径错误，您将收不到操作回调，因此ShareSDK也无法给予您操作回调。为了避免出错，请使用相对路径的方式，直接复制上面的代码到您的AndroidManifest.xml中即可。
 
-##第四步：
-``` java
-private void showShare() {
-      OnekeyShare oks = new OnekeyShare();
-      //关闭sso授权
-      oks.disableSSOWhenAuthorize(); 
- 
-     // 分享时Notification的图标和文字  2.5.9以后的版本不     调用此方法
-      //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
-      // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-      oks.setTitle(getString(R.string.share));
-      // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-      oks.setTitleUrl("http://sharesdk.cn");
-      // text是分享文本，所有平台都需要这个字段
-      oks.setText("我是分享文本");
-      // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-      oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
-      // url仅在微信（包括好友和朋友圈）中使用
-      oks.setUrl("http://sharesdk.cn");
-      // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-      oks.setComment("我是测试评论文本");
-      // site是分享此内容的网站名称，仅在QQ空间使用
-      oks.setSite(getString(R.string.app_name));
-      // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-      oks.setSiteUrl("http://sharesdk.cn");
- 
-     // 启动分享GUI
-     oks.show(this);
- }
- 
+#2、 使用方法
+ - 登录调用  参数是授权平台的名字，下面以QQ为例
+ ```java
+ OtherLogin.showLogin(QQ.NAME);
  ```
-
-
->注意：这里没有金额设置，金额的信息已经包含在预支付码prepayid了。
-
-## 文档
-
-### 微信支付官方文档 支付流程
-https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5
-
-### 支付宝支付官方文档 支付流程
-https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.sdGXaH&treeId=204&articleId=105296&docType=1
-
+  - 分享调用
+  ```java
+   /**
+       *此方法不用指定分享的平台,会调用九宫格的平台列表界面
+       * @param title 标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+       * @param text 分享文本，所有平台都需要这个字段(必填)
+       * @param imageurl 分享网络图片，新浪微博分享网络图片需要通过审核后申请高级写入接口，否则请注释掉测试新浪微博(选填)
+       * @param url 仅在微信（包括好友和朋友圈）中使用,如果不需要此字段可以直接传空或null
+       */
+  OthreShare.showShare(context,title,ext,imageurl,url);
+  ```
