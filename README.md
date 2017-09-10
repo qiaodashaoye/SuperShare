@@ -11,7 +11,7 @@
   		}
   	}	
 ```
-> compile 'com.github.qiaodashaoye:SimpleShare:1.0.1'
+> compile 'com.github.qiaodashaoye:SimpleShare:1.0.2'
 
 ## 第二步：
  - 在main文件夹下新建assets文件夹，并把从ShareSDK官网下载的SDK资源包文件夹下的ShareSDK.xml文件放到里面，
@@ -103,3 +103,7 @@
        */
   OthreShare.showShare(context,title,ext,imageurl,url);
   ```
+  
+  >注意！注意！注意！
+   - 微信分享时如果要分享连接，必须把配置文件里的BypassApproval="false"，不然
+   只能分享文本。

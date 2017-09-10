@@ -29,6 +29,8 @@ public class OthreShare {
 
         if(url!=null && !url.equals("")){
             oks.setUrl(url);
+            // titleUrl是标题的网络链接，QQ和QQ空间等使用
+            oks.setTitleUrl(url);
         }
         //启动分享
         oks.show(context);

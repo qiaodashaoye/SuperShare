@@ -221,7 +221,7 @@ public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Ca
 		}
 
 		if ("QZone".equals(name) && !plat.isClientValid()) {
-			toast("未安装QQ或QQ版本过低");
+			toast("ssdk_qq_client_inavailable");
 			return false;
 		}
 
@@ -242,7 +242,7 @@ public abstract class OnekeyShareThemeImpl implements PlatformActionListener, Ca
 
 		boolean isWechat = "WechatFavorite".equals(name) || "Wechat".equals(name) || "WechatMoments".equals(name);
 		if (isWechat && !plat.isClientValid()) {
-			toast("未安装微信或微信版本过低");
+			toast("ssdk_wechat_client_inavailable");
 			return false;
 		}
 
