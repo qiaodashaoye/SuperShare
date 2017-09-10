@@ -12,16 +12,16 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-        android {
-        signingConfigs {
-            debug {
-                storeFile file("E:\\AAAAAAAA\\ShareDemo\\shareDemo.jks")
-                storePassword "qwe123"
-                keyAlias "key0"
-                keyPassword "qwe123"
-            }
-        }
-    }
+//        android {
+//        signingConfigs {
+//            debug {
+//                storeFile file("E:\\AAAAAAAA\\ShareDemo\\shareDemo.jks")
+//                storePassword "qwe123"
+//                keyAlias "key0"
+//                keyPassword "qwe123"
+//            }
+//        }
+ //   }
         lintOptions {
             checkReleaseBuilds false
             // Or, if you prefer, you can continue to check for errors in release builds,
